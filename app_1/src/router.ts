@@ -113,6 +113,42 @@ export default new Router({
       name: 'camera',
       beforeEnter: utils.authGuard,
       component: () => import(/* webpackChunkName: "profile" */ './views/CameraView.vue'),
-},
+    },
+    {
+      path: '/locationone',
+      name: 'locationone',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/LocationOne.vue'),
+    },
+    {
+      path: '/locationtwo',
+      name: 'locationtwo',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/LocationTwo.vue'),
+    },
+    {
+      path: '/locationthree',
+      name: 'locationthree',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/LocationThree.vue'),
+    },
+    {
+      path: '/locationfour',
+      name: 'locationfour',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/LocationFour.vue'),
+    },
+    {
+      path: '/locationfive',
+      name: 'locationfive',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/LocationFive.vue'),
+    },
+    {
+      path: '/locationfour',
+      name: 'locationfour',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/LocationFour.vue'),
+    },
   ],
 });

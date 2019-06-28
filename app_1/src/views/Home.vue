@@ -1,8 +1,10 @@
 <template>
+  
   <div class="_home">
     <Header :title="title" />
+   
     <Loader :is-busy="isBusy" />
-    <main class="_main">
+    <main  class="_main">
 
       <div class="_prize" v-for="(_prize, index) in prizes">
         <div class="_prize__card">
@@ -68,7 +70,9 @@
       </div>
 
     </main>
+   
   </div>
+
 </template>
 
 <script lang="ts">
@@ -81,6 +85,7 @@ import Sidebar from '@/components/Sidebar.vue';
 import Loader from '@/components/Loader.vue';
 import lang from '@/lang/en';
 import dateformat from 'dateformat';
+
 
 @Component({
   components: {

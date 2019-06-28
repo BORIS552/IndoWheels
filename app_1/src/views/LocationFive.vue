@@ -4,7 +4,7 @@
     <!-- <Sidebar /> -->
 
     <main class="_main">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14734.10320655075!2d88.4007805!3d22.5968323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfbe73fdba73c3201!2sM+D+Tradelinks+Pvt+Ltd+-+Tyre+Shop!5e0!3m2!1sen!2sin!4v1561531463136!5m2!1sen!2sin" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <iframe class="_map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d117878.27729032867!2d88.37628092818528!3d22.590464387042996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2902149e9da0b588!2sINDOWHEELS+SALTLAKE!5e0!3m2!1sen!2sin!4v1551207348996" allowfullscreen></iframe>
       <ContactForm v-show="!isFormSubmitted" :at-submit="onSubmit" />
       <FormConfirmation :headline="lang.common.thankYou" :msg="lang.contact.thanksMsg" icon="/images/high-five.svg" v-show="isFormSubmitted" />
     </main>
@@ -34,7 +34,7 @@ declare let window: any;
     FormConfirmation
   },
 })
-export default class LocationOne extends Vue {
+export default class LocationFive extends Vue {
 
   private lang: any = lang;
   private title: string = lang.contactDetails.name;

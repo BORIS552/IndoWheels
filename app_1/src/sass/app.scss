@@ -939,6 +939,8 @@ Carousel
 Header
 */
 
+
+
 ._header {
     // z-index: 100;
     // position: fixed;
@@ -1091,6 +1093,9 @@ Content
 
 ._main {
     // padding-top: 4rem;
+    overflow-y: auto;
+        height: 45rem;
+
 }
 
 ._headline {
@@ -1518,6 +1523,9 @@ Home
 
     ._main {
         // padding: 0;
+        overflow-y: auto;
+        height: 45rem;
+
     }
 
     ._header {
@@ -1743,6 +1751,9 @@ Contact
     }
 }
 
+
+
+
 ._map {
     display: block;
     width: 100%;
@@ -1831,6 +1842,8 @@ Terms
 ._terms {
     ._main {
         padding: 2rem;
+        overflow-y: auto;
+        height: 45rem;
     }
     ._header {
         padding-bottom: 1rem;
@@ -1877,6 +1890,8 @@ Videos
     ._main {
         // padding: 0 0.5rem 5rem;
         padding-bottom: 5rem;
+        overflow-y: auto;
+        height: 45rem;
     }
 
     ._grid {

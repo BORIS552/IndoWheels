@@ -5,6 +5,7 @@
     </div>
     <Sidebar />
   </header>
+ 
 </template>
 
 <script lang="ts">
@@ -24,3 +25,5 @@ export default class Header extends Vue {
   @Prop() private title!: string;
 }
 </script>
+
+ 
