@@ -19,7 +19,7 @@ function errorHandler(error: any, commit: any, type: string): Promise<any> {
     if (error.response && error.response.data && error.response.data.errors) {
         data = error.response.data.errors;
     }
-    alert(error.response.data)
+    alert(error.response.data);
     return commit(type, { data });
 }
 

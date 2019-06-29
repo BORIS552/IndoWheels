@@ -66,7 +66,7 @@ export default class LoginForm extends Vue {
   }
 
   private get errors(): any {
-    return this.$store.state.auth.errors
+    return this.$store.state.auth.errors;
   }
 
   private get phoneErrors(): string[] {

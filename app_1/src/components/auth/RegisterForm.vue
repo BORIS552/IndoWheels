@@ -120,7 +120,7 @@ export default class RegisterForm extends Vue {
   }
 
   private get errors(): any {
-    return this.$store.state.auth.errors
+    return this.$store.state.auth.errors;
   }
 
   private get invoiceNoErrors(): string[] {

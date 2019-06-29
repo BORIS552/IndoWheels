@@ -6,11 +6,11 @@
 
 <script>
   export default {
-    mounted () {
-      navigator.mediaDevices.getUserMedia({ video: true })
+    mounted() {
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } })
         .then(mediaStream => {
           this.$refs.video.srcObject = mediaStream
-          this.$refs.video.play()
+          this.$refs.video.play();
         })
         .catch(error => console.error('getUserMedia() error:', error))
     }
