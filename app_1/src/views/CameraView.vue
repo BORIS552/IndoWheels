@@ -1,17 +1,16 @@
 <template>
-    <div class="camera-modal">
+   <div class="camera-modal">
         <video ref="video" class="camera-stream"/>
     </div>
 </template>
 
 <script>
-    import { Component, Prop, Vue } from 'vue-property-decorator';
-     export default class CameraView extends Vue{
-    mounted () {
-      navigator.mediaDevices.getUserMedia( { video: { facingMode: 'environment', audio: false } } )
+  export default {
+    mounted() {
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } })
         .then(mediaStream => {
           this.$refs.video.srcObject = mediaStream
-          this.$refs.video.play()
+          this.$refs.video.play();
         })
         .catch(error => console.error('getUserMedia() error:', error))
     }
@@ -19,7 +18,7 @@
 </script>
 
 <style scoped>
-    .camera-modal {
+.camera-modal {
         width: 100%;
         height: 100%;
         top: 0;

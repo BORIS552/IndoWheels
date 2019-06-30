@@ -23,9 +23,12 @@
       </div>
 
       <div class="_fieldset">
-        <input type="text" readonly="" @click="onFileSelect('invoicePhoto')" class="_input" :placeholder="lang.placeholder.invoicePhoto" :value="invoicePhotoName" />
+       <!-- <input type="text" readonly="" @click="onFileSelect('invoicePhoto')" class="_input" :placeholder="lang.placeholder.invoicePhoto" :value="invoicePhotoName" />
         <input type="file" name="invoice_photo" ref="invoicePhoto" capture @input="onInvoicePhotoSelect" accept="image/*" />
-        <FormErrors :items="invoicePhotoErrors" />
+        <FormErrors :items="invoicePhotoErrors" /> -->
+        <button class="_btn"><router-link
+                class="_participations__hotspot"
+                :to="`/camera`"/></button>
       </div>
 
       <div class="_fieldset">

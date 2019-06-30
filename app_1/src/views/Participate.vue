@@ -5,7 +5,8 @@
     <Loader :is-busy="isBusy" />
     <main class="_main">
       <!-- <Cover :headline="title" :tagline="lang.contactDetails.tagline" /> -->
-      <CameraView />
+      <!-- <CameraView /> -->
+      <ParticipateForm />
     </main>
   </div>
 </template>

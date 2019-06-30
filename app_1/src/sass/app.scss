@@ -983,8 +983,8 @@ Header
     }
 
     ._grid {
-        // display: flex;
-        // align-items: center;
+        display: flex;
+        align-items: center;
     }
 
     // ._dropdown {
@@ -1763,10 +1763,13 @@ Contact
 
 ._contact__card__icon {
     display: block;
-    width: 3rem;
+    width: 2.2rem;
     margin: 0 auto 1rem;
 }
-
+._contact__card__text {
+    font-size: 0.55rem;
+    font-weight: $bold;
+}
 ._contact__phone {
     padding-bottom: 0;
     color: $primary;
@@ -1777,6 +1780,15 @@ Contact
 
 ._contact ._confirmation {
     margin-bottom: 5rem;
+}
+._contact_card_div_style {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: $bg-blur;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+._contact_card_div_style:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 

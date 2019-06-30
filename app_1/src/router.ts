@@ -112,7 +112,7 @@ export default new Router({
       path: '/camera',
       name: 'camera',
       beforeEnter: utils.authGuard,
-      component: () => import(/* webpackChunkName: "about" */ './views/CameraView.vue'),
+      component: () => import(/* webpackChunkName: "profile" */ './views/CameraView.vue'),
 },
   ],
 });
