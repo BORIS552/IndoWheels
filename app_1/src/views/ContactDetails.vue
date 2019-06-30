@@ -26,16 +26,6 @@
             </div>
             </div>
           </td>
-          <td class="_contact__card">
-            <div class="_contact_card_div_style">
-            <img src="/images/gps.svg" alt="" class="_contact__card__icon">
-            <div class="_contact__card__text">
-              DB-16, 1A Cross Rd, DB Block, Sector 1, Salt Lake City, Kolkata, West Bengal 700064
-              <br>
-              HCP4+JM Kolkata, West Bengal
-            </div>
-            </div>
-          </td>
         <tr/>
         <tr>
           <td class="_contact__card">
@@ -48,6 +38,18 @@
             </div>
             </div>
           </td>
+          <td class="_contact__card">
+            <div class="_contact_card_div_style">
+            <img src="/images/gps.svg" alt="" class="_contact__card__icon">
+            <div class="_contact__card__text">
+              DB-16, 1A Cross Rd, DB Block, Sector 1, Salt Lake City, Kolkata, West Bengal 700064
+              <br>
+              HCP4+JM Kolkata, West Bengal
+            </div>
+            </div>
+          </td>
+        <tr/>
+         <tr>
           <td class="_contact__card">
             <div class="_contact_card_div_style">
             <img src="/images/gps.svg" alt="" class="_contact__card__icon">
