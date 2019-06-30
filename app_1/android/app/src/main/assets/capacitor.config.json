@@ -1,0 +1,7 @@
+{
+  "appId": "com.xygrow.indowheels",
+  "appName": "Indowheels",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist"
+}

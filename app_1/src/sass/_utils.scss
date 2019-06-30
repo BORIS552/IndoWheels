@@ -1,0 +1,45 @@
+/*
+
+TOC
+
+Overlay
+Typography
+
+*/
+
+
+/*
+Overlay
+*/
+
+._overlay {
+    z-index: 1;
+    position: relative;
+    &::before {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(#000, 0.5);
+    }
+}
+
+
+/*
+Typography
+*/
+
+._textLeft {
+    text-align: left;
+}
+
+._textCenter {
+    text-align: center;
+}
+
+._textRight {
+    text-align: right;
+}

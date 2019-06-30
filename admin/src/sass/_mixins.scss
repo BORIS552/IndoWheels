@@ -1,0 +1,24 @@
+/*
+
+TOC
+
+Scroll Bar
+
+*/
+
+
+/*
+Scroll Bar
+*/
+
+@mixin scrollbar() {
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color: $bg-focus;
+        /* or add it to the track */
+    }
+    /* Add a thumb */
+    &::-webkit-scrollbar-thumb {
+        background: $primary;
+    }
+}

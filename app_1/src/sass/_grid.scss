@@ -1,0 +1,76 @@
+/*
+
+TOC
+
+Vars
+Grid
+Cols
+
+*/
+
+
+/*
+Vars
+*/
+
+$grid: 1200px;
+$gutter: 1rem;
+$s: 540px;
+$m: 768px;
+$l: 1024px;
+$h: 1200px;
+$breakpoints: ((_s, $s), (_m, $m), (_l, $l), (_h, $h));
+$grid-columns: 12;
+
+/*
+Grid
+*/
+
+._grid {
+    max-width: $grid;
+    margin: 0 auto;
+    padding: 0 $gutter * .5;
+}
+
+._fluid {
+    width: 100%;
+    max-width: none;
+}
+
+._row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 $gutter * -.5;
+}
+
+._col {
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 0 $gutter * .5;
+}
+
+
+/*
+Cols
+*/
+
+@for $i from 1 through $grid-columns {
+    ._#{$i} {
+        flex: 0 0 percentage($i / $grid-columns);
+        width: percentage($i / $grid-columns);
+        max-width: percentage($i / $grid-columns);
+    }
+}
+
+@each $bp,
+$res in $breakpoints {
+    @media (min-width: $res) {
+        @for $i from 1 through $grid-columns {
+            .#{$bp}#{$i} {
+                flex: 0 0 percentage($i / $grid-columns);
+                width: percentage($i / $grid-columns);
+                max-width: percentage($i / $grid-columns);
+            }
+        }
+    }
+}
