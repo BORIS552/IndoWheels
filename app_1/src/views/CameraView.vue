@@ -1,15 +1,13 @@
 <template>
    <div class="camera-modal">
-        <video v-show="captureStatus" ref="video" class="camera-stream"/>
-        <canvas v-show="captureStatus" ref="canvas" id="canvas" width="640" height="480"><p>Testing</p></canvas>
-        <img v-show="captureStatus" v-bind:src="captureData" height="50" />
+        <video v-show="!captureStatus" ref="video" class="camera-stream"/>
+        <img v-show="captureStatus" v-bind:src="captureData" height="200" />
          <div class="camera-modal-container">
             <span @click="capture" class="take-picture-button take-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
               <i class="material-icons">camera</i>
             </span>
             <button @click="back"><img src="/images/back_arrow.svg" alt="" class="back_arrow" /></button>
         </div>
-
     </div>
 </template>
 
@@ -38,12 +36,15 @@
       const imageCapture = new window.ImageCapture(mediaStreamTrack)
       
       this.captureStatus = true;
-      this.canvas = this.$refs.canvas;
-      this.canvas.getContext("2d").drawImage(imageCapture, 0, 0, 640, 480);
-      this.captureData = this.canvas.toDataURL("image/png");
+      
 
       return imageCapture.takePhoto().then(blob => {
       console.log(blob);
+      const imageURL = URL.createObjectURL(blob);
+      this.captureData = imageURL;
+
+
+
     })
   },
 
