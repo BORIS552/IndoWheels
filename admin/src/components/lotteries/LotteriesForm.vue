@@ -18,13 +18,6 @@
             <FormErrors :items="nameErrors" />
           </div>
         </div>
-        <div class="_col _4">
-          <div class="_fieldset">
-            <label class="_label">{{ lang.form.date }}</label>
-            <flat-pickr name="date" v-model="date" class="_input"></flat-pickr>
-            <FormErrors :items="dateErrors" />
-          </div>
-        </div>
       </div>
     </div>
 
@@ -46,6 +39,27 @@
         </div>
       </div>
     </div> -->
+
+
+
+     <div class="_fieldset">
+      <div class="_row">
+        <div class="_col _s6">
+          <div class="_fieldset">
+            <label class="_label">{{ lang.form.startDate }}</label>
+            <flat-pickr v-model="startDate" class="_input"></flat-pickr>
+            <FormErrors :items="startDateErrors" />
+          </div>
+        </div>
+        <div class="_col _s6">
+          <div class="_fieldset">
+            <label class="_label">{{ lang.form.date }}</label>
+            <flat-pickr name="date" v-model="date" class="_input"></flat-pickr>
+            <FormErrors :items="dateErrors" />
+          </div>
+        </div>
+      </div>
+    </div> 
 
     <div class="_fieldset">
       <label class="_label"><strong>{{ lang.lotteries.howToSelectInvoices }}</strong></label>
@@ -232,7 +246,7 @@ export default class LotteriesForm extends Vue {
   }
 
   private onSuccess() {
-    return window.location.reload();
+    //return window.location.reload();
     if (!_.size(this.lotteryErrors)) {
       this.atStore();
     }

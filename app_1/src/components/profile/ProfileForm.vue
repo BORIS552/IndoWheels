@@ -2,7 +2,7 @@
   <div class="_profile__form">
     <ProfileFormName />
     <ProfileFormEmail />
-    <!-- <ProfileFormPhone /> -->
+    <ProfileFormPhone />
     <ProfileFormCarmake />
     <!-- <ProfileFormPassword /> -->
   </div>

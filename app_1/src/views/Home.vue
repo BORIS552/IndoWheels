@@ -45,8 +45,13 @@
                 <strong class="_participations__info" v-if="!_lottery.participants.length">{{ lang.common.participate }}</strong>
                 <strong class="_participations__info" v-if="_lottery.participants.length">{{ lang.common.participated }}</strong>
               </div>
-              <router-link
+             <!-- <router-link
                 v-if="!_lottery.participants.length && _lottery.date_formatted === curr_formatted_date"
+                class="_participations__hotspot"
+                :to="`/participate/${_lottery.id}`"
+              /> -->
+              <router-link
+                v-if="!_lottery.participants.length && getDateStat(_lottery.date, _lottery.start_date) "
                 class="_participations__hotspot"
                 :to="`/participate/${_lottery.id}`"
               />
@@ -94,6 +99,7 @@ import dateformat from 'dateformat';
     Loader,
   },
 })
+
 export default class Home extends Vue {
 
   private title: string = lang.home.name;
@@ -141,6 +147,26 @@ export default class Home extends Vue {
     return axios.get(url)
       .then((response) => {
         this.participations = response.data;
+        console.log("participations");
+        console.log(response.data);
+        console.log("data--4th july");
+        console.log(response.data[0]);
+        console.log(response.data[0].date);
+        console.log(response.data[0].start_date);
+
+        let startDate = new Date(response.data[0].start_date);
+        let endDate = new Date(response.data[0].date);
+        let now = new Date();
+        console.log("Dates------>");
+        console.log(startDate);
+        console.log(endDate);
+        console.log(now);
+        if (now > startDate && now < endDate){
+           console.log("positive");
+        } else {
+          console.log("negative");
+        }
+       
       });
   }
 
@@ -148,6 +174,21 @@ export default class Home extends Vue {
     const msg = `I have won ${prize.name} - ${prize.info}!`;
     return encodeURIComponent(msg);
   }
+
+  private getDateStat(date: any, startDate: any): boolean {
+        let start_Date = new Date(startDate);
+        let endDate = new Date(date);
+        let now = new Date();
+        console.log("Dates------>");
+        console.log(start_Date);
+        console.log(endDate);
+        console.log(now);
+        if (now >= start_Date && now < endDate){
+           return true;
+        } else {
+          return false;
+        }
+  } 
 
 }
 </script>

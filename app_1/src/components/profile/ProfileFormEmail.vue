@@ -1,4 +1,4 @@
-<template>
+3<template>
   <form class="_form" @submit.prevent="onSubmit">
     <div class="_form__card">
       <img src="images/email.svg" alt="" class="_form__card__icon">

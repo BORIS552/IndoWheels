@@ -23,20 +23,24 @@
       </div>
 
       <div class="_fieldset">
-       <!-- <input type="text" readonly="" @click="onFileSelect('invoicePhoto')" class="_input" :placeholder="lang.placeholder.invoicePhoto" :value="invoicePhotoName" />
-        <input type="file" name="invoice_photo" ref="invoicePhoto" capture @input="onInvoicePhotoSelect" accept="image/*" />
-        <FormErrors :items="invoicePhotoErrors" /> -->
+       <input type="text" readonly="" @click="onFileSelect('invoicePhoto')" class="_input" :placeholder="lang.placeholder.invoicePhoto" :value="invoicePhotoName" />
+        <input type="file" name="invoice_photo" ref="invoicePhoto" capture="environment" @input="onInvoicePhotoSelect" accept="image/*" />
+        <FormErrors :items="invoicePhotoErrors" />
+
         <!-- <button class="_btn"><router-link
                 class="_participations__hotspot"
-                :to="`/camera`"/></button> -->
-        <button class="_btn" @click="$router.push({name: 'camera'})">Take Invoice photo</button>
+                :to="`/camera`"/></button> 
+        <button class="_btn" @click="$router.push({name: 'camera'})">Take Invoice photo</button> -->
+
       </div>
 
       <div class="_fieldset">
-       <!-- <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
-        <input type="file" name="product_photo" ref="productPhoto" capture @input="onProductPhotoSelect" accept="image/*" />
-        <FormErrors :items="productPhotoErrors" /> -->
-        <button class="_btn" @click="$router.push({name: 'camera'})">Take Product photo</button>
+       <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
+        <input type="file" name="product_photo" ref="productPhoto" capture="environment" @input="onProductPhotoSelect" accept="image/*" />
+        <FormErrors :items="productPhotoErrors" /> 
+
+
+        <!-- <button class="_btn" @click="$router.push({name: 'camera'})">Take Product photo</button> -->
       </div>
 
       <div class="_fieldset">
