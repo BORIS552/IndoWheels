@@ -95,10 +95,50 @@
               <span>Invoice No.</span>
               <span>{{ _prize.invoiceNo }}</span>
               <small>
-                <span> / </span>
-                <a target="_blank" :href="_prize.invoicePhoto">{{ lang.form.viewInvoicePhoto }}</a>
-                <span> / </span>
-                <a target="_blank" :href="_prize.productPhoto">{{ lang.form.viewProductPhoto }}</a>
+                <table>
+                <tr>
+                <td>
+                <!--<a :href="_prize.invoicePhoto">{{ lang.form.viewInvoicePhoto }}
+                <img :src="_prize.invoicePhoto"/></a> -->
+
+
+                <p>{{ lang.form.viewInvoicePhoto }}</p>  
+                <img :src="_prize.invoicePhoto" style="width:50%;cursor:zoom-in"
+                onclick="document.getElementById('modal01_invoice').style.display='block'">
+
+                <div id="modal01_invoice" class="w3-modal" onclick="this.style.display='none'">
+                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                  <div class="w3-modal-content w3-animate-zoom">
+                    <img :src="_prize.invoicePhoto" style="width:100%">
+                   </div>
+                </div>
+
+                </td>
+               <td>
+                <!-- <a target="_blank" :href="_prize.productPhoto">{{ lang.form.viewProductPhoto }}</a>
+                <img :src="_prize.productPhoto"/> -->
+
+
+                       <p>{{ lang.form.viewProductPhoto }}</p>  
+                <img :src="_prize.productPhoto" style="width:50%;cursor:zoom-in"
+                onclick="document.getElementById('modal01_product').style.display='block'">
+
+                <div id="modal01_product" class="w3-modal" onclick="this.style.display='none'">
+                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                  <div class="w3-modal-content w3-animate-zoom">
+                    <img :src="_prize.productPhoto" style="width:100%">
+                   </div>
+                </div>
+
+
+
+
+
+
+
+                </td>
+                </tr>
+                </table>
               </small>
             </label>
           </div>
