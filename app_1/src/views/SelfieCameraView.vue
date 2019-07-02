@@ -1,9 +1,8 @@
 <template>
    <div class="camera-modal">
         <video v-show="!captureStatus" ref="video" class="camera-stream"/>
-        <div v-show="captureStatus">
-          <Loader :is-busy="isBusy" />
-          <img v-bind:src="captureData" height="200" />
+       <div v-show="captureStatus">
+          <img  v-bind:src="captureData" height="200" />
         </div>
          <div class="camera-modal-container">
             <span @click="capture" class="take-picture-button take-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
@@ -15,15 +14,9 @@
 </template>
 
 <script>
-  import Loader from '@/components/Loader.vue';
-
   export default {
-  components: {
-    Loader,
-  },
   data () {
       return {
-        isBusy: false,
         mediaStream: null,
         captureStatus: false,
         captureData: {},
@@ -31,7 +24,7 @@
       }
     },
    mounted() {
-      navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } })
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "user" } } })
         .then(mediaStream => {
         this.mediaStream = mediaStream
           this.$refs.video.srcObject = mediaStream
@@ -41,18 +34,16 @@
     },
     methods: {
     capture () {
-      this.isBusy = true;
       const mediaStreamTrack = this.mediaStream.getVideoTracks()[0]
       const imageCapture = new window.ImageCapture(mediaStreamTrack)
       
       this.captureStatus = true;
+      
 
       return imageCapture.takePhoto().then(blob => {
       console.log(blob);
       const imageURL = URL.createObjectURL(blob);
       this.captureData = imageURL;
-      this.isBusy = false;
-      localStorage.setItem('Invoice', this.captureData);
 
     })
   },

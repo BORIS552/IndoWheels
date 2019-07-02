@@ -26,15 +26,24 @@
        <!-- <input type="text" readonly="" @click="onFileSelect('invoicePhoto')" class="_input" :placeholder="lang.placeholder.invoicePhoto" :value="invoicePhotoName" />
         <input type="file" name="invoice_photo" ref="invoicePhoto" capture @input="onInvoicePhotoSelect" accept="image/*" />
         <FormErrors :items="invoicePhotoErrors" /> -->
-        <button class="_btn"><router-link
+        <!-- <button class="_btn"><router-link
                 class="_participations__hotspot"
-                :to="`/camera`"/></button>
+                :to="`/camera`"/></button> -->
+        <button class="_btn" @click="$router.push({name: 'camera'})">Take Invoice photo</button>
       </div>
 
       <div class="_fieldset">
-        <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
+       <!-- <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
         <input type="file" name="product_photo" ref="productPhoto" capture @input="onProductPhotoSelect" accept="image/*" />
-        <FormErrors :items="productPhotoErrors" />
+        <FormErrors :items="productPhotoErrors" /> -->
+        <button class="_btn" @click="$router.push({name: 'camera'})">Take Product photo</button>
+      </div>
+
+      <div class="_fieldset">
+       <!-- <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
+        <input type="file" name="product_photo" ref="productPhoto" capture @input="onProductPhotoSelect" accept="image/*" />
+        <FormErrors :items="productPhotoErrors" /> -->
+        <button class="_btn" @click="$router.push({name: 'selfiecamera'})">Take Selfie with Product</button>
       </div>
 
       <div class="_fieldset">
@@ -78,6 +87,7 @@ export default class ParticipateForm extends Vue {
   private isFormSubmitted: boolean = false;
 
   private async onSubmit() {
+    console.log(localStorage.getItem('Invoice'));
     this.isBusy = true;
     const url = `user/participations/${this.$route.params.lottery}`;
     axios.post(utils.apiUrl(url), this.getFormData())

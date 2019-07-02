@@ -101,7 +101,7 @@ export default class Home extends Vue {
   private prizes: any = [];
   private participations: any = [];
   private curr_date = new Date().toUTCString();;
-  private curr_formatted_date = dateformat(this.curr_date, 'ddd dS mmm yyyy');
+  private curr_formatted_date = dateformat(this.curr_date, 'ddd ddS mmm yyyy');
 
   private mounted(): void {
     this.$store.commit(types.SIDEBAR_HIDE);
@@ -111,7 +111,7 @@ export default class Home extends Vue {
     this.getPrizes();
     this.getParticipations();
     console.log('Todays Date');
-    console.log(dateformat(this.curr_date, 'ddd dS mmm yyyy'));
+    console.log(dateformat(this.curr_date, 'ddd ddS mmm yyyy'));
     console.log(this.curr_formatted_date);
     
   }

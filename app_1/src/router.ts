@@ -114,6 +114,13 @@ export default new Router({
       beforeEnter: utils.authGuard,
       component: () => import(/* webpackChunkName: "profile" */ './views/CameraView.vue'),
     },
+
+    {
+      path: '/selfiecamera',
+      name: 'selfiecamera',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/SelfieCameraView.vue'),
+    },
     {
       path: '/locationone',
       name: 'locationone',
