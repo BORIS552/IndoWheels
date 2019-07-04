@@ -40,7 +40,9 @@
                 <br>
                 <span>{{ lang.common.availableOn }}</span>
                 <br>
-                <span class="_participations__meta__date">{{ _lottery.date_formatted }}</span>
+                <span class="_participations__meta__date">{{ formatDateUI(_lottery.start_date) }}</span>
+                To
+                <span class="_participations__meta__date">{{ formatDateUI(_lottery.date) }}</span>
                 <br>
                 <strong class="_participations__info" v-if="!_lottery.participants.length">{{ lang.common.participate }}</strong>
                 <strong class="_participations__info" v-if="_lottery.participants.length">{{ lang.common.participated }}</strong>
@@ -168,6 +170,11 @@ export default class Home extends Vue {
         }
        
       });
+  }
+
+  private formatDateUI(date: any): any {
+    let format_date = dateformat(date, 'ddd ddS mmm yyyy');
+    return format_date;
   }
 
   private getShareText(prize: any) {

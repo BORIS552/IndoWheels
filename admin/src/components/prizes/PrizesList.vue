@@ -44,7 +44,49 @@
           <p>Address: {{ item.address }}</p>
         </div>
         <a class="_btn _sm" v-if="item.invoice_photo_url" :href="item.invoice_photo_url" target="_blank">View Invoice</a>
-        <a class="_btn _sm" v-if="item.product_photo_url" :href="item.product_photo_url" target="_blank">View Product</a>
+        <a class="_btn _sm" v-if="item.product_photo_url" :href="item.product_photo_url" target="_blank">View Product</a> 
+
+
+
+          <!--- 
+           <small>
+                <table>
+                <tr>
+                <td>
+
+                <p>{{ lang.form.viewInvoicePhoto }}</p>  
+                <img v-if="item.invoice_photo_url" :src="item.invoice_photo_url" style="width:20%;cursor:zoom-in"
+                onclick="document.getElementById('modal01__prize_invoice').style.display='block'">
+
+                <div id="modal01__prize_invoice" class="w3-modal" onclick="this.style.display='none'">
+                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                  <div class="w3-modal-content w3-animate-zoom">
+                    <img v-if="item.invoice_photo_url" :src="item.invoice_photo_url" style="width:100%">
+                   </div>
+                </div>
+
+                </td>
+               <td>
+
+                <p>{{ lang.form.viewProductPhoto }}</p>  
+                <img v-if="item.product_photo_url" :src="item.product_photo_url" style="width:20%;cursor:zoom-in"
+                onclick="document.getElementById('modal01_prize_product').style.display='block'">
+
+                <div id="modal01_prize_product" class="w3-modal" onclick="this.style.display='none'">
+                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                  <div class="w3-modal-content w3-animate-zoom">
+                    <img v-if="item.product_photo_url" :src="item.product_photo_url" style="width:100%">
+                   </div>
+                </div>
+
+                </td>
+                </tr>
+                </table>
+              </small>
+           -->
+
+
+
 
       </div>
     </div>
