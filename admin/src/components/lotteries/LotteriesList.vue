@@ -60,6 +60,7 @@ export default class LotteriesList extends Vue {
   }
 
   private get lotteries(): any {
+    console.log(this.$store.state.lotteries.data);
     return this.$store.state.lotteries.data;
   }
 

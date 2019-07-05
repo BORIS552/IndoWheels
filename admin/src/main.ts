@@ -2,12 +2,14 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import VModal from 'vue-js-modal';
+import JsonExcel from 'vue-json-excel';
 
 require('./sass/app.scss');
 
 Vue.config.productionTip = false;
-Vue.use(VModal);
+
+Vue.component('downloadExcel', JsonExcel);
+
 
 new Vue({
   router,

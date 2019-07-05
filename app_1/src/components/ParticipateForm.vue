@@ -43,12 +43,12 @@
         <!-- <button class="_btn" @click="$router.push({name: 'camera'})">Take Product photo</button> -->
       </div>
 
-      <div class="_fieldset">
-       <!-- <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
+     <!-- <div class="_fieldset">
+        <input type="text" readonly="" @click="onFileSelect('productPhoto')" class="_input" :placeholder="lang.placeholder.productPhoto" :value="productPhotoName" />
         <input type="file" name="product_photo" ref="productPhoto" capture @input="onProductPhotoSelect" accept="image/*" />
-        <FormErrors :items="productPhotoErrors" /> -->
+        <FormErrors :items="productPhotoErrors" />
         <button class="_btn" @click="$router.push({name: 'selfiecamera'})">Take Selfie with Product</button>
-      </div>
+      </div>  -->
 
       <div class="_fieldset">
         <input type="submit" class="_btn" :value="lang.form.submit">

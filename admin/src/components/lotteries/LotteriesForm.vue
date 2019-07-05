@@ -286,7 +286,7 @@ export default class LotteriesForm extends Vue {
   }
 
   private onSuccess() {
-    //return window.location.reload();
+    return window.location.reload();
     if (!_.size(this.lotteryErrors)) {
       this.atStore();
     }

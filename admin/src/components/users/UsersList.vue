@@ -2,6 +2,15 @@
   <div class="_list">
 
     <SearchAndFilter :items="users" :fields="['name', 'email', 'updated_at_formatted', 'invoice_no', 'phone']" :at-filter="onFilter" />
+    <download-excel
+    class   = "_btn"
+    :data   = "users_data"
+    :fields = "json_fields"
+    worksheet = "My Worksheet"
+    name    = "filename.xls">
+
+    Download Data
+    </download-excel>
 
     <div class="_list__items">
       <div class="_list__item" v-for="(item, index) in currentItems" :key="index">
@@ -56,13 +65,26 @@ export default class UsersList extends Vue {
   private items: any = [];
   private itemsPerPage: number = 5;
   private currentPage = 1;
+  private users_data: any = [];
 
+  private json_fields: any = {
+    'Name' : 'name',
+    'Phone' : 'phone',
+    'Email' : 'email',
+    'Address' : 'address',
+    'Pin' : 'pin',
+    'Invoice Number' : 'invoice_no',
+    'Updated At': 'updated_at_formatted'
+  }; 
   private mounted(): void {
     document.title = this.title;
     this.$store.dispatch('usersIndex');
   }
 
   private get users(): object[] {
+  console.log("users-->");
+  this.users_data = this.$store.state.users.data;
+  console.log(this.users_data);
     return this.$store.state.users.data;
   }
 

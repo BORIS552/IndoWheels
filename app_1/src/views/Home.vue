@@ -141,7 +141,10 @@ export default class Home extends Vue {
     return axios.get(url)
       .then((response) => {
         this.prizes = response.data;
+        console.log("prizes------------->");
+        console.log(this.prizes);
       });
+      
   }
 
   private getParticipations() {

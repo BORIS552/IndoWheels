@@ -131,6 +131,7 @@ export default class PrizesList extends Vue {
   }
 
   private get prizes(): object[] {
+    console.log(this.$store.state.prizes.data);
     return this.$store.state.prizes.data;
   }
 

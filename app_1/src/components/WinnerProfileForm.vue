@@ -32,7 +32,7 @@
         <FormErrors :items="carRegNoErrors" />
       </div>
 
-<!--       <div class="_fieldset">
+<!--  <div class="_fieldset">
         <input type="text" name="invoice_no" v-model="invoiceNo" class="_input" :placeholder="lang.placeholder.invoiceNo" required>
         <FormErrors :items="invoiceNoErrors" />
       </div>
@@ -41,13 +41,17 @@
         <input type="text" readonly="" @click="onFileSelect('photo')" class="_input" :placeholder="lang.form.invoiceCopy" :value="photoName" />
         <input type="file" name="invoice_photo" ref="photo" capture="environment" @input="onPhotoSelect" accept="image/*" />
         <FormErrors :items="invoicePhotoErrors" />
-      </div>
+      </div> -->
 
       <div class="_fieldset">
-        <input type="text" readonly="" @click="onFileSelect('selfie')" class="_input" :placeholder="lang.form.selfieCopy" :value="selfieName" />
+        <!--<input type="text" readonly="" @click="onFileSelect('selfie')" class="_input" :placeholder="lang.form.selfieCopy" :value="selfieName" />
         <input type="file" name="selfie" ref="selfie" capture="environment" @input="onSelfieSelect" accept="image/*" />
-        <FormErrors :items="selfieErrors" />
-      </div> -->
+        <FormErrors :items="selfieErrors" /> -->
+
+        <input type="text" readonly="" @click="onFileSelect('selfie')" class="_input" :placeholder="lang.form.selfieCopy" :value="selfieName" />
+        <input type="file" name="selfie" ref="selfie" capture="user" @input="onSelfieSelect" accept="image/*" />
+        <FormErrors :items="selfieErrors" /> 
+      </div> 
 
       <div class="_fieldset">
         <label class="_label">{{ lang.form.dob }}</label>

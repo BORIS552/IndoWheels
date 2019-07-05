@@ -1,11 +1,11 @@
 <template>
   <form class="_form" @submit.prevent="onSubmit" ref="form">
-    <!-- <div class="_fieldset">
+    <div class="_fieldset">
       <label class="_label">{{ lang.form.invoiceNo }}</label>
       <input type="text" name="invoice_no" v-model="invoiceNo" class="_input" :placeholder="lang.placeholder.invoiceNo">
       <FormErrors :items="invoiceNoErrors" />
     </div>
-    <div class="_fieldset">
+    <!-- <div class="_fieldset">
       <label class="_label">{{ lang.form.invoice }}</label>
       <input type="file" name="invoice" class="_input" :placeholder="lang.placeholder.invoice">
       <FormErrors :items="invoiceErrors" />
@@ -20,7 +20,7 @@
       <input type="text" name="phone" v-model="phone" class="_input" :placeholder="lang.placeholder.phone">
       <FormErrors :items="phoneErrors" />
     </div>
-    <!-- <div class="_fieldset">
+    <div class="_fieldset">
       <label class="_label">{{ lang.form.email }}</label>
       <input type="text" name="email" v-model="email" class="_input" :placeholder="lang.placeholder.email">
       <FormErrors :items="emailErrors" />
@@ -34,7 +34,7 @@
       <label class="_label">{{ lang.form.pin }}</label>
       <input type="text" name="pin" v-model="pin" class="_input" :placeholder="lang.placeholder.pin">
       <FormErrors :items="pinErrors" />
-    </div> -->
+    </div>
     <div class="_fieldset">
       <input type="submit" class="_btn" :value="lang.form.submit">
     </div>
