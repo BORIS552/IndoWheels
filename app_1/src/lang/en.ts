@@ -25,7 +25,7 @@ export default {
     name: 'Complete Your Profile',
     headline: 'Complete Your Profile',
     tagline: 'Complete the form below to claim your prize',
-    msg: 'You will receive your prize shortly'
+    msg: 'Collect your prize from the outlet where you made the purchase for the product'
   },
 
   contact: {

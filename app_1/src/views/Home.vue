@@ -25,6 +25,10 @@
             <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?quote=${getShareText(_prize)}`" :title="lang.common.shareOnFacebook">
               <img src="/images/facebook.svg" alt="">
             </a>
+
+            <a target="_blank" :href="`https://twitter.com/intent/tweet?text=${getShareText(_prize)}`">
+              <img src="/images/twitter.svg" alt="">
+            </a>
           </div>
         </div>
         <!-- <router-link v-if="!_prize.invoice_no" class="_prize__hotspot" :to="`/winners/${_prize.id}`"></router-link> -->
@@ -181,7 +185,7 @@ export default class Home extends Vue {
   }
 
   private getShareText(prize: any) {
-    const msg = `I have won ${prize.name} - ${prize.info}!`;
+    const msg = `I have won ${prize.lottery.name} - ${prize.info}! From IndoWheels Lottery, check out my selfie: ${prize.selfie_url}`;
     return encodeURIComponent(msg);
   }
 
