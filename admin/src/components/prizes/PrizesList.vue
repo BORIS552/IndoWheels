@@ -43,50 +43,27 @@
           <p>Review: {{ item.review }}</p>
           <p>Address: {{ item.address }}</p>
         </div>
+        <div>
+        <table>
+        <tr>
+        <td>
         <a class="_btn _sm" v-if="item.invoice_photo_url" :href="item.invoice_photo_url" target="_blank">View Invoice</a>
-        <a class="_btn _sm" v-if="item.product_photo_url" :href="item.product_photo_url" target="_blank">View Product</a> 
+        </td>
+        <td>
+        <a class="_btn _sm" v-if="item.product_photo_url" :href="item.product_photo_url" target="_blank">View Product</a>
+        </td>
+        <td>
+        <iframe v-if="item.selfie_url" class="_btn _sm" :src="`${getFacebookShare(item.selfie_url)}`" width="90" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        </td>
+        <td>
+            <!--<a href="https://twitter.com/home?status=This%20photo%20is%20awesome!%20Check%20it%20out:%20pic.twitter.com/9Ee63f7aVp">Share on Twitter</a> -->
+            <!--<a href="https://twitter.com/intent/tweet?text=Check this out: &url=http://api.lotteryindowheels.in/storage/selfies/5Bo75j3FO80SaqfebIYC2xb7Kyg7C7hZ3kOmuwk5.jpeg" target="_blank">Tweet</a>-->
+            <a v-if="item.selfie_url" class="_btn _sm" :href="`https://twitter.com/intent/tweet?text=check+this+out&url=${getencodedURL(item.selfie_url)}&hashtags=indowheels`" target="_blank">Tweet</a>
 
-
-
-          <!--- 
-           <small>
-                <table>
-                <tr>
-                <td>
-
-                <p>{{ lang.form.viewInvoicePhoto }}</p>  
-                <img v-if="item.invoice_photo_url" :src="item.invoice_photo_url" style="width:20%;cursor:zoom-in"
-                onclick="document.getElementById('modal01__prize_invoice').style.display='block'">
-
-                <div id="modal01__prize_invoice" class="w3-modal" onclick="this.style.display='none'">
-                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                  <div class="w3-modal-content w3-animate-zoom">
-                    <img v-if="item.invoice_photo_url" :src="item.invoice_photo_url" style="width:100%">
-                   </div>
-                </div>
-
-                </td>
-               <td>
-
-                <p>{{ lang.form.viewProductPhoto }}</p>  
-                <img v-if="item.product_photo_url" :src="item.product_photo_url" style="width:20%;cursor:zoom-in"
-                onclick="document.getElementById('modal01_prize_product').style.display='block'">
-
-                <div id="modal01_prize_product" class="w3-modal" onclick="this.style.display='none'">
-                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                  <div class="w3-modal-content w3-animate-zoom">
-                    <img v-if="item.product_photo_url" :src="item.product_photo_url" style="width:100%">
-                   </div>
-                </div>
-
-                </td>
-                </tr>
-                </table>
-              </small>
-           -->
-
-
-
+        </td>
+        </tr>
+        </table>
+        </div>
 
       </div>
     </div>
@@ -132,6 +109,7 @@ export default class PrizesList extends Vue {
 
   private get prizes(): object[] {
     console.log(this.$store.state.prizes.data);
+
     return this.$store.state.prizes.data;
   }
 
@@ -146,6 +124,18 @@ export default class PrizesList extends Vue {
 
   private onFilter(items: any) {
     this.items = items;
+  }
+
+  private getFacebookShare(selfie_url: any) {
+    console.log(selfie_url);
+    const encodedURL = encodeURIComponent(selfie_url);
+    const facebook_url = "https://www.facebook.com/plugins/share_button.php?href="+encodedURL+"&layout=button_count&size=small&width=90&height=25&appId";
+
+    return facebook_url;
+  }
+
+  private getencodedURL(selfie_url: any) {
+  return encodeURIComponent(selfie_url);
   }
 
   private onDestroy(id: number): void {
