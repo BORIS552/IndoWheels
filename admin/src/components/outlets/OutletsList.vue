@@ -1,5 +1,6 @@
 <template>
   <div class="_list">
+    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
     <SearchAndFilter :items="outlets" :fields="['name', 'updated_at_formatted']" :at-filter="onFilter" />
     <div class="_list__items">
       <div class="_list__item" v-for="(item, index) in items" :key="index">
@@ -24,6 +25,8 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import SearchAndFilter from '@/components/SearchAndFilter.vue';
 import lang from '@/lang/en';
+import XLSX from 'xlsx';
+
 
 @Component({
   components: {
@@ -38,6 +41,7 @@ export default class OutletsList extends Vue {
   private sortBy: string = '';
   private lang: any = lang;
   private items: any = [];
+  private json_data_outlets: any = [];
 
   private mounted(): void {
     document.title = this.title;
@@ -45,7 +49,24 @@ export default class OutletsList extends Vue {
   }
 
   private get outlets(): any[] {
+    this.json_data_outlets = this.$store.state.outlets.data;
+    console.log(this.json_data_outlets);
     return this.$store.state.outlets.data;
+  }
+
+  private downloadExcel(): void {
+    var outletWS = XLSX.utils.json_to_sheet(this.json_data_outlets); 
+    
+
+      // A workbook is the name given to an Excel file
+      var wb = XLSX.utils.book_new(); // make Workbook of Excel
+
+      // add Worksheet to Workbook
+      // Workbook contains one or more worksheets
+      XLSX.utils.book_append_sheet(wb, outletWS, 'outlets'); // sheetAName is name of Worksheet
+
+      // export Excel file
+      XLSX.writeFile(wb, 'outlets.xlsx'); // name of the file is 'users.xlsx'
   }
 
   private onFilter(items: any) {

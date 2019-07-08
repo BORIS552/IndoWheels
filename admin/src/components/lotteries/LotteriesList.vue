@@ -56,8 +56,7 @@ export default class LotteriesList extends Vue {
   private items: any = [];
   private itemsPerPage: number = 5;
   private currentPage = 1;
-  private json_data: any = [];  
- 
+  private json_data_lottery: any = [];  
 
   private mounted(): void {
     document.title = this.title;
@@ -66,12 +65,12 @@ export default class LotteriesList extends Vue {
 
   private get lotteries(): any {
     console.log(this.$store.state.lotteries.data);
-    this.json_data = this.$store.state.lotteries.data;
+    this.json_data_lottery = this.$store.state.lotteries.data;
     return this.$store.state.lotteries.data;
   }
 
   private downloadExcel(): void {
-    var animalWS = XLSX.utils.json_to_sheet(this.json_data); 
+    var lotteryWS = XLSX.utils.json_to_sheet(this.json_data_lottery); 
     
 
       // A workbook is the name given to an Excel file
@@ -79,7 +78,7 @@ export default class LotteriesList extends Vue {
 
       // add Worksheet to Workbook
       // Workbook contains one or more worksheets
-      XLSX.utils.book_append_sheet(wb, animalWS, 'animals'); // sheetAName is name of Worksheet
+      XLSX.utils.book_append_sheet(wb, lotteryWS, 'lottery'); // sheetAName is name of Worksheet
 
       // export Excel file
       XLSX.writeFile(wb, 'book.xlsx'); // name of the file is 'book.xlsx'

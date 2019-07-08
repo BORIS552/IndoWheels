@@ -1,5 +1,6 @@
 <template>
   <div class="_list">
+    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
     <SearchAndFilter :items="reviews" :fields="['name', 'updated_at_formatted', 'content']" :at-filter="onFilter" />
     <div class="_list__items">
 
@@ -57,6 +58,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import Paginate from 'vuejs-paginate'
 import SearchAndFilter from '@/components/SearchAndFilter.vue';
 import lang from '@/lang/en';
+import XLSX from 'xlsx';
 
 @Component({
   components: {
@@ -74,6 +76,7 @@ export default class ReviewsList extends Vue {
   private items: any = [];
   private itemsPerPage: number = 5;
   private currentPage = 1;
+  private json_data_review: any = [];
 
   private mounted(): void {
     document.title = this.title;
@@ -81,8 +84,26 @@ export default class ReviewsList extends Vue {
   }
 
   private get reviews(): object[] {
+    this.json_data_reviews = this.$store.state.reviews.data;
+    console.log(this.json_data_reviews);
     return this.$store.state.reviews.data;
   }
+
+  private downloadExcel(): void {
+    var reviewWS = XLSX.utils.json_to_sheet(this.json_data_reviews); 
+    
+
+      // A workbook is the name given to an Excel file
+      var wb = XLSX.utils.book_new(); // make Workbook of Excel
+
+      // add Worksheet to Workbook
+      // Workbook contains one or more worksheets
+      XLSX.utils.book_append_sheet(wb, reviewWS, 'reviews'); // sheetAName is name of Worksheet
+
+      // export Excel file
+      XLSX.writeFile(wb, 'reviews.xlsx'); // name of the file is 'reviews.xlsx'
+  }
+
 
   private get pageCount() {
     return Math.ceil(this.items.length / this.itemsPerPage);

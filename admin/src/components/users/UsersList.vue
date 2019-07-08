@@ -1,13 +1,6 @@
 <template>
   <div class="_list">
-    <download-excel
-    class   = "_btn"
-    :data   = "users_data"
-    :fields = "json_fields"
-    worksheet = "My Worksheet"
-    name    = "customer_details.xls">
-     Download Data
-    </download-excel>
+    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
     
     <SearchAndFilter :items="users" :fields="['name', 'email', 'updated_at_formatted', 'invoice_no', 'phone']" :at-filter="onFilter" />
     
@@ -50,6 +43,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import Paginate from 'vuejs-paginate'
 import SearchAndFilter from '@/components/SearchAndFilter.vue';
 import lang from '@/lang/en';
+import XLSX from 'xlsx';
+
 
 @Component({
   components: {
@@ -67,17 +62,8 @@ export default class UsersList extends Vue {
   private items: any = [];
   private itemsPerPage: number = 5;
   private currentPage = 1;
-  private users_data: any = [];
+  private json_users_data: any = [];
 
-  private json_fields: any = {
-    'Name' : 'name',
-    'Phone' : 'phone',
-    'Email' : 'email',
-    'Address' : 'address',
-    'Pin' : 'pin',
-    'Invoice Number' : 'invoice_no',
-    'Updated At': 'updated_at_formatted'
-  }; 
 
   private mounted(): void {
     document.title = this.title;
@@ -86,10 +72,27 @@ export default class UsersList extends Vue {
 
   private get users(): object[] {
   console.log("users-->");
-  this.users_data = this.$store.state.users.data;
-  console.log(this.users_data);
+  this.json_users_data = this.$store.state.users.data;
+  console.log(this.json_users_data);
     return this.$store.state.users.data;
   }
+
+
+  private downloadExcel(): void {
+    var userWS = XLSX.utils.json_to_sheet(this.json_users_data); 
+    
+
+      // A workbook is the name given to an Excel file
+      var wb = XLSX.utils.book_new(); // make Workbook of Excel
+
+      // add Worksheet to Workbook
+      // Workbook contains one or more worksheets
+      XLSX.utils.book_append_sheet(wb, userWS, 'users'); // sheetAName is name of Worksheet
+
+      // export Excel file
+      XLSX.writeFile(wb, 'users.xlsx'); // name of the file is 'users.xlsx'
+  }
+
 
   private get pageCount() {
     return Math.ceil(this.items.length / this.itemsPerPage);

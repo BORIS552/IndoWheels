@@ -1,5 +1,6 @@
 <template>
   <div class="_grid">
+    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
 
     <SearchAndFilter
       :items="prizes"
@@ -84,6 +85,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import Paginate from 'vuejs-paginate'
 import SearchAndFilter from '@/components/SearchAndFilter.vue';
 import lang from '@/lang/en';
+import XLSX from 'xlsx';
 
 @Component({
   components: {
@@ -102,16 +104,7 @@ export default class PrizesList extends Vue {
   private itemsPerPage: number = 5;
   private currentPage = 1;
   private prizes_data: any = [];
-
-  private json_fields: any = {
-    'Name' : 'name',
-    'Phone' : 'phone',
-    'Email' : 'email',
-    'Address' : 'address',
-    'Pin' : 'pin',
-    'Invoice Number' : 'invoice_no',
-    'Updated At': 'updated_at_formatted'
-  };
+  private json_data_prize: any = [];  
 
 
 
@@ -122,8 +115,23 @@ export default class PrizesList extends Vue {
 
   private get prizes(): object[] {
     console.log(this.$store.state.prizes.data);
-
+    this.json_data_prize = this.$store.state.prizes.data;
     return this.$store.state.prizes.data;
+  }
+
+  private downloadExcel(): void {
+    var prizesWS = XLSX.utils.json_to_sheet(this.json_data_prize); 
+    
+
+      // A workbook is the name given to an Excel file
+      var wb = XLSX.utils.book_new(); // make Workbook of Excel
+
+      // add Worksheet to Workbook
+      // Workbook contains one or more worksheets
+      XLSX.utils.book_append_sheet(wb, prizesWS, 'prizes'); // sheetAName is name of Worksheet
+
+      // export Excel file
+      XLSX.writeFile(wb, 'prizes.xlsx'); // name of the file is 'prizes.xlsx'
   }
 
   private get pageCount() {
