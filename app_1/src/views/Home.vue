@@ -22,11 +22,19 @@
             <a target="_blank" :href="`whatsapp://send?text=${getShareText(_prize)}`" data-action="share/whatsapp/share" :title="lang.common.shareOnWhatsapp">
               <img src="/images/whatsapp.svg" alt="">
             </a>
-            <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?quote=${getShareText(_prize)}`" :title="lang.common.shareOnFacebook">
+            <!-- <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?quote=${getShareText(_prize)}`" :title="lang.common.shareOnFacebook">
               <img src="/images/facebook.svg" alt="">
+            </a> -->
+            <!--<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapi.lotteryindowheels.in%2Fstorage%2Fselfies%2F5Bo75j3FO80SaqfebIYC2xb7Kyg7C7hZ3kOmuwk5.jpeg&amp;src=sdkpreparse"> <img src="/images/facebook.svg" alt=""></a> -->
+            <a title="send to Facebook" 
+              :href="`https://www.facebook.com/sharer.php?u=${_prize.selfie_url}&quote=${getQuote(_prize)}&hashtag=%23IndowheelsLotteryWinner`"
+              target="_blank">
+              <span>
+              <img src="/images/facebook.svg" alt="">
+              </span>
             </a>
 
-            <a target="_blank" :href="`https://twitter.com/intent/tweet?text=${getShareText(_prize)}`">
+            <a target="_blank" :href="`https://twitter.com/intent/tweet?text=${getShareText(_prize)}&hashtags=Indowheels`">
               <img src="/images/twitter.svg" alt="">
             </a>
           </div>
@@ -187,6 +195,11 @@ export default class Home extends Vue {
   private getShareText(prize: any) {
     const msg = `I have won ${prize.lottery.name} - ${prize.info}! From IndoWheels Lottery, check out my selfie: ${prize.selfie_url}`;
     return encodeURIComponent(msg);
+  }
+
+  private getQuote(prize: any) {
+  const msg = `I have won ${prize.lottery.name} - ${prize.info}! From IndoWheels Lottery`;
+  return msg;
   }
 
   private getDateStat(date: any, startDate: any): boolean {
