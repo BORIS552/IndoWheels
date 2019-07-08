@@ -1,16 +1,18 @@
 <template>
   <div class="_list">
-
-    <SearchAndFilter :items="users" :fields="['name', 'email', 'updated_at_formatted', 'invoice_no', 'phone']" :at-filter="onFilter" />
     <download-excel
     class   = "_btn"
     :data   = "users_data"
     :fields = "json_fields"
     worksheet = "My Worksheet"
-    name    = "filename.xls">
-
-    Download Data
+    name    = "customer_details.xls">
+     Download Data
     </download-excel>
+    
+    <SearchAndFilter :items="users" :fields="['name', 'email', 'updated_at_formatted', 'invoice_no', 'phone']" :at-filter="onFilter" />
+    
+
+   
 
     <div class="_list__items">
       <div class="_list__item" v-for="(item, index) in currentItems" :key="index">
@@ -76,6 +78,7 @@ export default class UsersList extends Vue {
     'Invoice Number' : 'invoice_no',
     'Updated At': 'updated_at_formatted'
   }; 
+
   private mounted(): void {
     document.title = this.title;
     this.$store.dispatch('usersIndex');

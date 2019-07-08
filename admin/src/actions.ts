@@ -190,6 +190,16 @@ export const lotteriesUpdate = async (action: Action, payload: Payload): Promise
     .finally(() => finalHandler(action.commit, types.LOTTERIES_IS_FREE));
 };
 
+export const lotteriesSendSms = async (action: Action, payload: Payload): Promise<any> => {
+    action.commit(types.LOTTERIES_IS_BUSY);
+    return axios.patch(utils.apiUrl(`lotteries/${payload.id}`), payload.data)
+    .then((response) => {
+        action.commit(types.LOTTERIES_UPDATE, { id: payload.id, data: response.data });
+    })
+    .catch((error) => errorHandler(error, action.commit, types.LOTTERIES_IS_ERROR))
+    .finally(() => finalHandler(action.commit, types.LOTTERIES_IS_FREE));
+};
+
 export const lotteriesDestroy = async (action: Action, payload: Payload): Promise<any> => {
     axios.delete(utils.apiUrl(`lotteries/${payload.id}`));
     action.commit(types.LOTTERIES_DESTROY, payload);

@@ -58,7 +58,7 @@
         <td>
             <!--<a href="https://twitter.com/home?status=This%20photo%20is%20awesome!%20Check%20it%20out:%20pic.twitter.com/9Ee63f7aVp">Share on Twitter</a> -->
             <!--<a href="https://twitter.com/intent/tweet?text=Check this out: &url=http://api.lotteryindowheels.in/storage/selfies/5Bo75j3FO80SaqfebIYC2xb7Kyg7C7hZ3kOmuwk5.jpeg" target="_blank">Tweet</a>-->
-            <a v-if="item.selfie_url" class="_btn _sm" :href="`https://twitter.com/intent/tweet?text=check+this+out&url=${getencodedURL(item.selfie_url)}&hashtags=indowheels`" target="_blank">Tweet</a>
+            <a v-if="item.selfie_url" class="_btn _sm" :href="`https://twitter.com/intent/tweet?text=winner+of+Indowheels+Lottery:&url=${getencodedURL(item.selfie_url)}&hashtags=indowheelslotterywinner`" target="_blank">Tweet</a>
 
         </td>
         </tr>
@@ -101,6 +101,19 @@ export default class PrizesList extends Vue {
   private items: any = [];
   private itemsPerPage: number = 5;
   private currentPage = 1;
+  private prizes_data: any = [];
+
+  private json_fields: any = {
+    'Name' : 'name',
+    'Phone' : 'phone',
+    'Email' : 'email',
+    'Address' : 'address',
+    'Pin' : 'pin',
+    'Invoice Number' : 'invoice_no',
+    'Updated At': 'updated_at_formatted'
+  };
+
+
 
   private mounted(): void {
     document.title = this.title;
