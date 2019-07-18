@@ -95,50 +95,22 @@
               <span>Invoice No.</span>
               <span>{{ _prize.invoiceNo }}</span>
               <small>
+
                 <table>
-                <tr>
-                <td>
-                <!--<a :href="_prize.invoicePhoto">{{ lang.form.viewInvoicePhoto }}
-                <img :src="_prize.invoicePhoto"/></a> -->
+                  <tr>
+                  <td>
+                    <a  @click="openWindow(_prize.invoicePhoto)">{{ lang.form.viewInvoicePhoto }}
+                    <img :src="_prize.invoicePhoto"/></a>
+                  </td>
 
-
-                <p>{{ lang.form.viewInvoicePhoto }}</p>  
-                <img :src="_prize.invoicePhoto" style="width:50%;cursor:zoom-in"
-                onclick="document.getElementById('modal01_invoice').style.display='block'">
-
-                <div id="modal01_invoice" class="w3-modal" onclick="this.style.display='none'">
-                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                  <div class="w3-modal-content w3-animate-zoom">
-                    <img :src="_prize.invoicePhoto" style="width:100%">
-                   </div>
-                </div>
-
-                </td>
-               <td>
-                <!-- <a target="_blank" :href="_prize.productPhoto">{{ lang.form.viewProductPhoto }}</a>
-                <img :src="_prize.productPhoto"/> -->
-
-
-                       <p>{{ lang.form.viewProductPhoto }}</p>  
-                <img :src="_prize.productPhoto" style="width:50%;cursor:zoom-in"
-                onclick="document.getElementById('modal01_product').style.display='block'">
-
-                <div id="modal01_product" class="w3-modal" onclick="this.style.display='none'">
-                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                  <div class="w3-modal-content w3-animate-zoom">
-                    <img :src="_prize.productPhoto" style="width:100%">
-                   </div>
-                </div>
-
-
-
-
-
-
-
-                </td>
-                </tr>
+                  <td>
+                    <a  @click="openWindow(_prize.productPhoto)"">{{ lang.form.viewProductPhoto }}
+                    <img :src="_prize.productPhoto"/> </a>
+                  </td>
+                  </tr>
                 </table>
+
+
               </small>
             </label>
           </div>
@@ -168,6 +140,7 @@
 
   </form>
 </template>
+
 
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
@@ -222,6 +195,10 @@ export default class LotteriesForm extends Vue {
       end_date: this.endDate,
       prizes: this.prizes,
     };
+  }
+
+  private openWindow(link: any) {
+    window.open(link,"my_window", "width=400, height=400");
   }
 
   private get nameErrors(): string[] {

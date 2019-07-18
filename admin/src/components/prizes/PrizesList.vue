@@ -62,6 +62,9 @@
             <a v-if="item.selfie_url" class="_btn _sm" :href="`https://twitter.com/intent/tweet?text=winner+of+Indowheels+Lottery:&url=${getencodedURL(item.selfie_url)}&hashtags=indowheelslotterywinner`" target="_blank">Tweet</a>
 
         </td>
+        <td>
+          <button class="_btn _sm _default" @click="sendSMS(item)">Send SMS</button>
+        </td>
         </tr>
         </table>
         </div>
@@ -132,6 +135,10 @@ export default class PrizesList extends Vue {
 
       // export Excel file
       XLSX.writeFile(wb, 'prizes.xlsx'); // name of the file is 'prizes.xlsx'
+  }
+
+  private sendSMS(item: any): void {
+    
   }
 
   private get pageCount() {

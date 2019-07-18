@@ -84,13 +84,13 @@ export default class ReviewsList extends Vue {
   }
 
   private get reviews(): object[] {
-    this.json_data_reviews = this.$store.state.reviews.data;
-    console.log(this.json_data_reviews);
+    this.json_data_review = this.$store.state.reviews.data;
+    console.log(this.json_data_review);
     return this.$store.state.reviews.data;
   }
 
   private downloadExcel(): void {
-    var reviewWS = XLSX.utils.json_to_sheet(this.json_data_reviews); 
+    var reviewWS = XLSX.utils.json_to_sheet(this.json_data_review); 
     
 
       // A workbook is the name given to an Excel file
