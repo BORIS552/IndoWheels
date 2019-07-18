@@ -17,10 +17,10 @@
             </h3>
             <div class="_list__item__meta">
               <template v-if="item.photo_url">
-                <a :href="item.photo_url" target="_blank" class="_btn _btnSm">{{ lang.common.viewPhoto }}</a>
+                <a  @click="openWindow(item.photo_url)" class="_btn _btnSm">{{ lang.common.viewPhoto }}</a>
               </template>
               <template v-if="item.video_url">
-                <a :href="item.video_url" target="_blank" class="_btn _btnSm">{{ lang.common.viewVideo }}</a>
+                <a @click="openWindow(item.video_url)" class="_btn _btnSm">{{ lang.common.viewVideo }}</a>
               </template>
             </div>
             <time class="_list__item__time">{{ item.updated_at_formatted }}</time>
@@ -87,6 +87,10 @@ export default class ReviewsList extends Vue {
     this.json_data_review = this.$store.state.reviews.data;
     console.log(this.json_data_review);
     return this.$store.state.reviews.data;
+  }
+
+  private openWindow(link: any) {
+    window.open(link,"my_window", "width=600, height=600");
   }
 
   private downloadExcel(): void {

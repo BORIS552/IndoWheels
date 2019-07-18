@@ -198,7 +198,7 @@ export default class LotteriesForm extends Vue {
   }
 
   private openWindow(link: any) {
-    window.open(link,"my_window", "width=400, height=400");
+    window.open(link,"my_window", "width=600, height=600");
   }
 
   private get nameErrors(): string[] {

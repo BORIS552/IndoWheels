@@ -7,7 +7,9 @@
           <div class="_col _s9">
             <h3 class="_list__item__title">{{ item.name }}</h3>
             <template v-if="item.banner_url">
-              <a :href="item.banner_url" target="_blank">{{ lang.common.viewPhoto }}</a>
+              <!--<a :href="item.banner_url" target="_blank">{{ lang.common.viewPhoto }}</a>-->
+              <a @click="openWindow(item.banner_url)">
+                    <img :src="item.banner_url"/></a>
               <br>
             </template>
             <time class="_list__item__time">{{ item.updated_at_formatted }}</time>
@@ -41,6 +43,10 @@ export default class BannersList extends Vue {
   private sortBy: string = '';
   private lang: object = lang;
   private items: any = [];
+
+  private openWindow(link: any) {
+    window.open(link,"my_window", "width=400, height=400");
+  }
 
   private mounted(): void {
     this.$store.dispatch('bannersIndex');
