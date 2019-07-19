@@ -63,6 +63,7 @@
 
         </td>
         <td>
+          
           <button class="_btn _sm _default" @click="sendSMS(item)">Send SMS</button>
         </td>
         </tr>
@@ -89,11 +90,15 @@ import Paginate from 'vuejs-paginate'
 import SearchAndFilter from '@/components/SearchAndFilter.vue';
 import lang from '@/lang/en';
 import XLSX from 'xlsx';
+import Loader from '@/components/Loader.vue';
+import axios from 'axios';
+import utils from '@/utils';
 
 @Component({
   components: {
     SearchAndFilter,
     Paginate,
+    Loader,
   },
 })
 export default class PrizesList extends Vue {
@@ -108,7 +113,7 @@ export default class PrizesList extends Vue {
   private currentPage = 1;
   private prizes_data: any = [];
   private json_data_prize: any = [];  
-
+  private isBusy: boolean = false;
 
 
   private mounted(): void {
@@ -138,7 +143,33 @@ export default class PrizesList extends Vue {
   }
 
   private sendSMS(item: any): void {
+    console.log(item);
+    const winner_name = item.winner.name;
+    const winner_phone = item.winner.phone;
+    const prize_reward = item.name;
+    const prize_info = item.info;
+    const lottery_name = item.lottery.name;
+    const sms_msg_mod: stirng = "winner of " + prize_reward+ "lottery "+ lottery_name + " Congratulations. Please visit the retailer for claiming your prize.";
+    const sms_msg: string = "You won "+prize_reward+" info: "+ prize_info +" for lottery "+ lottery_name + " Congratulations. Please visit the retailer for claiming your prize.";
+    var text = JSON.stringify(sms_msg);
+    console.log(sms_msg.toString());
+    const smspayload = {
+    phone: winner_phone,
+    msg: "Winner,visit Indowheels retailer for claim",
+    }
+
     
+    axios.post(utils.apiUrl(`admin/sendsms`), smspayload)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        alert("sms sent!");
+      });
+
   }
 
   private get pageCount() {
