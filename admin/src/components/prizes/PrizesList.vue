@@ -48,10 +48,12 @@
         <table>
         <tr>
         <td>
-        <a class="_btn _sm" v-if="item.invoice_photo_url" :href="item.invoice_photo_url" target="_blank">View Invoice</a>
+        <!--<a class="_btn _sm" v-if="item.invoice_photo_url" :href="item.invoice_photo_url" target="_blank">View Invoice</a>-->
+        <a class="_btn _sm" v-if="item.invoice_photo_url" @click="openWindow(item.invoice_photo_url)">View Invoice</a>
         </td>
         <td>
-        <a class="_btn _sm" v-if="item.product_photo_url" :href="item.product_photo_url" target="_blank">View Product</a>
+        <!--<a class="_btn _sm" v-if="item.product_photo_url" :href="item.product_photo_url" target="_blank">View Product</a>-->
+        <a class="_btn _sm" v-if="item.product_photo_url" @click="openWindow(item.product_photo_url)">View Invoice</a>
         </td>
         <td>
         <iframe v-if="item.selfie_url" class="_btn _sm" :src="`${getFacebookShare(item.selfie_url)}`" width="90" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
@@ -119,6 +121,10 @@ export default class PrizesList extends Vue {
   private mounted(): void {
     document.title = this.title;
     this.$store.dispatch('prizesIndex');
+  }
+  
+  private openWindow(link: any) {
+    window.open(link,"my_window", "width=600, height=600");
   }
 
   private get prizes(): object[] {
