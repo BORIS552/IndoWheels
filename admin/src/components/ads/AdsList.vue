@@ -7,7 +7,9 @@
           <div class="_col _s9">
             <h3 class="_list__item__title">{{ item.name }}</h3>
             <template v-if="item.ad_url">
-              <a class="_btn _sm" :href="item.ad_url" target="_blank">{{ lang.common.viewAd }}</a>
+              <!--<a class="_btn _sm" :href="item.ad_url" target="_blank">{{ lang.common.viewAd }}</a>-->
+              <a @click="openWindow(item.ad_url)">
+                    <img :src="item.ad_url"/></a>
               <br>
             </template>
             <time class="_list__item__time">{{ item.updated_at_formatted }}</time>
@@ -52,6 +54,10 @@ export default class AdsList extends Vue {
 
   private onFilter(items: any) {
     this.items = items;
+  }
+
+  private openWindow(link: any) {
+    window.open(link,"my_window", "width=400, height=400");
   }
 
   private onDestroy(id: number): void {

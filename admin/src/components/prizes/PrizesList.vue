@@ -149,13 +149,13 @@ export default class PrizesList extends Vue {
     const prize_reward = item.name;
     const prize_info = item.info;
     const lottery_name = item.lottery.name;
-    const sms_msg_mod: stirng = "winner of " + prize_reward+ "lottery "+ lottery_name + " Congratulations. Please visit the retailer for claiming your prize.";
+    const sms_msg_mod: string = "winner of " + prize_reward+ "lottery "+ lottery_name + " Congratulations. Please visit the retailer for claiming your prize.";
     const sms_msg: string = "You won "+prize_reward+" info: "+ prize_info +" for lottery "+ lottery_name + " Congratulations. Please visit the retailer for claiming your prize.";
     var text = JSON.stringify(sms_msg);
     console.log(sms_msg.toString());
     const smspayload = {
     phone: winner_phone,
-    msg: "Winner,visit Indowheels retailer for claim",
+    msg: "Winner!,Login Indowheels app for details",
     }
 
     
