@@ -68,6 +68,12 @@ const items = [
     info: lang.menu.profile.info,
   },
   {
+    title: 'Customer Selfie',
+    icon: 'images/share.png',
+    route: { name: 'upload'},
+    info: 'Upload customer selfie'
+  },
+  {
     title: lang.menu.logout.title,
     icon: 'images/logout.svg',
     route: { name: 'logout' },

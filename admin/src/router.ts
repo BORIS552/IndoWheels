@@ -83,5 +83,11 @@ export default new Router({
       beforeEnter: utils.authGuard,
       component: () => import(/* webpackChunkName: "profile" */ './views/Images.vue'),
     },
+    {
+      path: '/upload',
+      name: 'upload',
+      beforeEnter: utils.authGuard,
+      component: () => import(/* webpackChunkName: "profile" */ './views/UploadSelfie.vue'),
+    },
   ],
 });

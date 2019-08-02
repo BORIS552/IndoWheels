@@ -74,6 +74,12 @@ const items = [
     info: lang.menu.profile.info,
   },
   {
+    title: 'upload selfie',
+    icon: 'images/share.png',
+    route: { name: 'upload'},
+    info: 'upload selfie'
+  },
+  {
     title: lang.menu.logout.title,
     icon: '/images/logout.svg',
     route: { name: 'logout' },

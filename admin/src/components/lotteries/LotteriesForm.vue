@@ -92,20 +92,23 @@
           <div class="_checkbox">
             <input type="checkbox" value="number" class="_checkbox__input" v-model="_prize.isChecked" :id="`prize${index}`">
             <label :for="`prize${index}`" class="_checkbox__label">
-              <span>Invoice No.</span>
-              <span>{{ _prize.invoiceNo }}</span>
+              <span>Phone No. </span>
+              <span>{{ _prize.phone }} </span>
+              <button class="_btn _sm _default" @click.prevent="editNumber(_prize)">{{ lang.form.edit }}</button>
               <small>
-
                 <table>
+
                   <tr>
                   <td>
                     <a  @click="openWindow(_prize.invoicePhoto)">{{ lang.form.viewInvoicePhoto }}
-                    <img :src="_prize.invoicePhoto"/></a>
+                    </a>
+                    <!-- <img :src="_prize.invoicePhoto"/> -->
                   </td>
 
                   <td>
                     <a  @click="openWindow(_prize.productPhoto)"">{{ lang.form.viewProductPhoto }}
-                    <img :src="_prize.productPhoto"/> </a>
+                    </a>
+                     <!-- <img :src="_prize.productPhoto"/> -->
                   </td>
                   </tr>
                 </table>
@@ -195,6 +198,21 @@ export default class LotteriesForm extends Vue {
       end_date: this.endDate,
       prizes: this.prizes,
     };
+  }
+  private editNumber(prize: any ){
+  var num;
+  var number = prompt("Enter Number", "Number");
+  if (number == null || number == "") {
+    num = "User cancelled the prompt.";
+  } else {
+    num = number;
+  }
+  console.log(num);
+   console.log(prize);
+   console.log(prize.pivot.invoice_no);
+   console.log(prize.phone);
+   console.log(prize.pivot.lottery_id);
+   location.reload(true);
   }
 
   private openWindow(link: any) {
