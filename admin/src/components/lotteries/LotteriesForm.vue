@@ -212,7 +212,25 @@ export default class LotteriesForm extends Vue {
    console.log(prize.pivot.invoice_no);
    console.log(prize.phone);
    console.log(prize.pivot.lottery_id);
-   location.reload(true);
+   this.isBusy = true;
+   const url = `http://api.lotteryindowheels.in/api/userid`;
+   const data = {
+    "phone":num,
+    "invoice":prize.pivot.invoice_no,
+    "lottery":prize.pivot.lottery_id
+    }
+
+    axios.post(url, data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        this.errors = error.response.data.errors;
+      })
+      .finally(() => {
+        this.isBusy = false;
+        location.reload(true);
+      });
   }
 
   private openWindow(link: any) {
