@@ -61,7 +61,7 @@
       </div>
     </div> 
 
-    <div class="_fieldset">
+    <div class="_fieldset" v-if="!getDateStat()">
       <label class="_label"><strong>{{ lang.lotteries.howToSelectInvoices }}</strong></label>
       <div class="_radio">
         <input type="radio" value="division" class="_radio__input" v-model="selectionType" id="typeDivision">
@@ -87,12 +87,12 @@
     </div>
 
     <div class="_fieldset">
+    <p>Number of participants:  {{prizes.length}}</p>
       <div class="_row">
         <div class="_col _s6 _l4" v-for="(_prize, index) in prizes" :key="index">
           <div class="_checkbox">
             <input type="checkbox" value="number" class="_checkbox__input" v-model="_prize.isChecked" :id="`prize${index}`">
             <label :for="`prize${index}`" class="_checkbox__label">
-              <span>Phone No. </span>
               <span>{{ _prize.phone }} </span>
               <button class="_btn _sm _default" @click.prevent="editNumber(_prize)">{{ lang.form.edit }}</button>
               <small>
@@ -137,7 +137,7 @@
 
     <div class="_fieldset">
       <input type="button" class="_btn" :value="lang.lotteries.getInvoices" @click.prevent="onGetInvoices" v-if="model.id">
-      <input type="submit" class="_btn" :value="lang.form.submit">
+      <input v-if="!getDateStat()" type="submit" class="_btn" :value="lang.form.submit">
       <!-- <input type="submit" class="_btn" :value="lang.form.submit" v-if="users.length && prizesPayload.length"> -->
     </div>
 
@@ -199,11 +199,29 @@ export default class LotteriesForm extends Vue {
       prizes: this.prizes,
     };
   }
+
+  private getDateStat(): boolean {
+        let endDate = new Date(this.date);
+        console.log("END DATE");
+        console.log(endDate);
+        let now = new Date();
+        console.log("Dates------>");
+        console.log(endDate);
+        console.log(now);
+        if (now < endDate){
+           return true;
+        } else {
+          return false;
+        }
+  } 
+
+
   private editNumber(prize: any ){
   var num;
   var number = prompt("Enter Number", "Number");
   if (number == null || number == "") {
     num = "User cancelled the prompt.";
+    return;
   } else {
     num = number;
   }
