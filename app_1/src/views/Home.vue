@@ -104,6 +104,7 @@ import Sidebar from '@/components/Sidebar.vue';
 import Loader from '@/components/Loader.vue';
 import lang from '@/lang/en';
 import dateformat from 'dateformat';
+import push from '@/PushNotificationsImpl';
 
 
 @Component({
@@ -133,7 +134,9 @@ export default class Home extends Vue {
     console.log('Todays Date');
     console.log(dateformat(this.curr_date, 'ddd ddS mmm yyyy'));
     console.log(this.curr_formatted_date);
-    
+    console.log(this.$store.state.auth.user.id);
+    console.log("setting up for push notifications");
+    push.notification();
   }
 
   private get isBusy(): boolean {
