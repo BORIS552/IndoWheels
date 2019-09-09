@@ -136,7 +136,7 @@ export default class Home extends Vue {
     console.log(this.curr_formatted_date);
     console.log(this.$store.state.auth.user.id);
     console.log("setting up for push notifications");
-    push.notification();
+    push.notification(this.$store.state.auth.user.id);
   }
 
   private get isBusy(): boolean {
