@@ -36,6 +36,7 @@ import lang from '@/lang/en';
     Loader,
   },
 })
+
 export default class Lotteries extends Vue {
 
   private title: string = lang.home.name;
@@ -52,6 +53,10 @@ export default class Lotteries extends Vue {
 
   private onAdd() {
     this.model = {};
+    console.log("This is a add new button state------------------------------");
+    console.log(this.$store.state.addNewButton.isClicked);
+    this.$store.state.addNewButton.isClicked = true;
+    //console.log(this.$store.state.addNewButton.isClicked);
     this.isModalOpen = true;
   }
 

@@ -61,6 +61,9 @@ export default new Vuex.Store({
       errors: {},
       isError: false,
     },
+    addNewButton: {
+      isClicked: false,
+    },
   },
   mutations,
   actions,
