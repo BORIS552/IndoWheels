@@ -1423,6 +1423,12 @@ Profile
 
 ._profile {
     // padding-top: 5rem;
+    ._main {
+        // padding: 0;
+        overflow-y: auto;
+        height: 45rem;
+        min-height: 90vh;
+    }
 }
 
 ._profile__form {
@@ -1531,6 +1537,7 @@ Home
         // padding: 0;
         overflow-y: auto;
         height: 45rem;
+        min-height: 90vh;
 
     }
 
@@ -1711,7 +1718,14 @@ Home
 /*
 Contact
 */
-
+._contact {
+    ._main {
+        // padding: 0;
+        overflow-y: auto;
+        height: 45rem;
+        min-height: 90vh;
+    }
+}
 ._contact__headline {
     margin: 0;
     margin-bottom: 1rem;
@@ -1816,6 +1830,13 @@ Reviews
 ._reviews {
     // padding-top: 4rem;
     // background-color: $bg-blur;
+
+    ._main {
+        // padding: 0;
+        overflow-y: auto;
+        height: 45rem;
+        min-height: 90vh;
+    }
 }
 
 ._review__form {
@@ -1894,10 +1915,10 @@ Videos
     // padding-top: calc(4rem + 56.25%);
 
     ._main {
-        // padding: 0 0.5rem 5rem;
-        padding-bottom: 5rem;
+        // padding: 0;
         overflow-y: auto;
         height: 45rem;
+        min-height: 90vh;
     }
 
     ._grid {

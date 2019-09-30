@@ -25,6 +25,7 @@ export default class PushNotificationsImpl {
         }
         axios.post(utils.apiUrl(`admin/fcm`), fcmpayload)
         .then((response) => {
+        console.log("Pushing the fcm token to DB");
         console.log(response);
         })
         .catch((error) => {
