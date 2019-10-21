@@ -67,6 +67,7 @@
         <td>
           
           <button class="_btn _sm _default" @click="sendSMS(item)">Send SMS</button>
+          <button class="_btn _sm _default" @click="sendWhatsApp(item)">Send WhatsApp Message</button>
         </td>
         </tr>
         </table>
@@ -176,6 +177,15 @@ export default class PrizesList extends Vue {
         alert("sms sent!");
       });
 
+  }
+
+  private sendWhatsApp(item: any): void {
+    console.log(item);
+    const winner_phone = item.winner.phone;
+    const winner_name = item.winner.name;
+    const prize_reward = item.name;
+    const prize_info = item.info;
+    const lottery_name = item.lottery.name;
   }
 
   private get pageCount() {
