@@ -181,11 +181,13 @@ export default class PrizesList extends Vue {
 
   private sendWhatsApp(item: any): void {
     console.log(item);
-    const winner_phone = item.winner.phone;
+    //const winner_phone = item.winner.phone;
+    const winner_phone = "8017178146";
     const winner_name = item.winner.name;
     const prize_reward = item.name;
     const prize_info = item.info;
     const lottery_name = item.lottery.name;
+    window.open("https://wa.me/91"+winner_phone+"?text=Car%20for%20sale%20at%20half%20price%20,Hurry!", "_blank");
   }
 
   private get pageCount() {
