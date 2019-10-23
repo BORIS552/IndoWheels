@@ -1,7 +1,7 @@
 <template>
   <div class="_users">
     <Header :title="title" />
-    <Sidebar />
+    <!-- <Sidebar /> -->
     <Loader :is-busy="isBusy" />
       <br/>
       <br/>
