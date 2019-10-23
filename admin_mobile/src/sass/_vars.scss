@@ -1,0 +1,102 @@
+/*
+
+TOC
+
+Colors
+Typography
+Border
+Buttons
+Forms
+Sidebar
+Shadow
+Animation
+Sidebar
+
+*/
+
+
+/*
+Colors
+*/
+
+$primary: #138ae4;
+$secondary: #4c637b;
+$danger: #f47564;
+$danger-dark: #d06455;
+$warning: #f1c40f;
+$success: #67ba2f;
+$success-dark: #529526;
+$info: #009ce8;
+// text
+$text-focus: #3c5874;
+$text: #5f82a5;
+$text-blur: #95adb9;
+// $text-focus: #333;
+// $text: #666;
+// $text-blur: #999;
+// light background
+$bg: #e3eaf3;
+$bg-blur: #f2f5f8;
+$bg-focus: #b8c6d6;
+// dark background
+$dark: #344c67;
+$dark-blur: #4c637b;
+$dark-focus: #25374a;
+
+/*
+Typography
+*/
+
+$line-height: 1.6;
+$font-primary: Roboto,
+sans-serif;
+$font-alt: inherit;
+$bold: 700;
+$semi-bold: 500;
+$font-sm: 14px;
+$font-xs: 13px;
+$font-lg: 19px;
+$letter-spacing: 0.05em;
+
+/*
+Border
+*/
+
+$radius: 2px;
+$radius-round: 10px;
+$border-width: 1px;
+$border-style: solid;
+$border-color: #c6d0dc;
+$border-color-focus: #9097ba;
+$border: $border-width $border-style $border-color;
+
+/*
+Buttons
+*/
+
+
+/*
+Forms
+*/
+
+$input-padding-y: 0.75rem;
+
+/*
+Sidebar
+*/
+
+$sidebar-width: 300px;
+$recent-width: 300px;
+
+/*
+Shadow
+*/
+
+$shadow: 0 1px 3px rgba(#000, 0.15);
+$shadow-long: 0 1rem 5rem rgba(0, 0, 0, 0.15);
+
+/*
+Animation
+*/
+
+$animation-time: 0.25s;
