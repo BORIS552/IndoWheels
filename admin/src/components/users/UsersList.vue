@@ -1,6 +1,6 @@
 <template>
   <div class="_list">
-    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
+    <button class="_btn _sm" @click="downloadExcel()">Excel download</button>
     
     <SearchAndFilter :items="users" :fields="['name', 'email', 'updated_at_formatted', 'invoice_no', 'phone']" :at-filter="onFilter" />
     
@@ -19,8 +19,8 @@
           </div>
           <div class="_col _s5">
             <div class="_list__actions">
-              <button class="_btn _sm _default" @click="atEdit(item)">{{ lang.form.edit }}</button>
-              <button class="_btn _sm _default" @click="onDestroy(item.id)">{{ lang.form.delete }}</button>
+              <button class="_btn _sm" @click="atEdit(item)">{{ lang.form.edit }}</button>
+              <button class="_btn _sm" @click="onDestroy(item.id)">{{ lang.form.delete }}</button>
             </div>
           </div>
         </div>

@@ -30,6 +30,7 @@ import lang from '@/lang/en';
     FormErrors,
   },
 })
+
 export default class BannersForm extends Vue {
 
   @Prop() private model!: any;

@@ -94,7 +94,7 @@
             <input type="checkbox" value="number" class="_checkbox__input" v-model="_prize.isChecked" :id="`prize${index}`">
             <label :for="`prize${index}`" class="_checkbox__label">
               <span>{{ _prize.phone }} </span>
-              <button class="_btn _sm _default" @click.prevent="editNumber(_prize)">{{ lang.form.edit }}</button>
+              <button class="_btn _sm" @click.prevent="editNumber(_prize)">{{ lang.form.edit }}</button>
               <small>
                 <table>
 
