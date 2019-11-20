@@ -182,7 +182,7 @@ export default class LotteriesForm extends Vue {
   private name: string = '';
   private date: string = '';
   private startDate: string = '';
-  private isActive: boolean = false;
+  private isActive: any = '';
   private endDate: string = '';
   private selectionType: string = '';
   private selectionValue: string = '';

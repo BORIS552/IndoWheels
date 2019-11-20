@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
+    <button class="_btn _sm" @click="downloadExcel()">Excel download</button>
     
     <SearchAndFilter :items="lotteries" :fields="['name', 'updated_at_formatted']" :at-filter="onFilter" />
 
@@ -13,8 +13,8 @@
           </div>
           <div class="_col _s3">
             <div class="_list__actions">
-              <button class="_btn _sm _default" @click="atEdit(item, index)">{{ lang.form.edit }}</button>
-              <button class="_btn _sm _default" @click="onDestroy(item.id, index)">{{ lang.form.delete }}</button>
+              <button class="_btn _sm" @click="atEdit(item, index)">{{ lang.form.edit }}</button>
+              <button class="_btn _sm" @click="onDestroy(item.id, index)">{{ lang.form.delete }}</button>
               
             </div>
           </div>

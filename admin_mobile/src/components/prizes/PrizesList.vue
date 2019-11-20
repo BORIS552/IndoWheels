@@ -1,6 +1,6 @@
 <template>
   <div class="_grid">
-    <button class="_btn _sm _default" @click="downloadExcel()">Excel download</button>
+    <button class="_btn _sm" @click="downloadExcel()">Excel download</button>
 
     <SearchAndFilter
       :items="prizes"
@@ -66,8 +66,8 @@
         </td>
         <td>
           
-          <button class="_btn _sm _default" @click="sendSMS(item)">Send SMS</button>
-          <button class="_btn _sm _default" @click="sendWhatsApp(item)">Send WhatsApp Message</button>
+          <button class="_btn _sm" @click="sendSMS(item)">Send SMS</button>
+          <button class="_btn _sm" @click="sendWhatsApp(item)">Send WhatsApp Message</button>
         </td>
         </tr>
         </table>

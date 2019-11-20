@@ -14,8 +14,8 @@
           </div>
           <div class="_col _s3">
             <div class="_list__actions">
-              <button class="_btn _sm _default" @click="atEdit(item)">{{ lang.form.edit }}</button>
-              <button class="_btn _sm _default" @click="onDestroy(item.id)">{{ lang.form.delete }}</button>
+              <button class="_btn _sm" @click="atEdit(item)">{{ lang.form.edit }}</button>
+              <button class="_btn _sm" @click="onDestroy(item.id)">{{ lang.form.delete }}</button>
             </div>
           </div>
         </div>
