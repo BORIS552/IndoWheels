@@ -65,8 +65,6 @@ export default class LotteriesList extends Vue {
 
   private get lotteries(): any {
     console.log(this.$store.state.lotteries.data);
-    console.log("Is Active");
-    console.log(this.$store.state.lotteries.data[0].is_active);
     this.json_data_lottery = this.$store.state.lotteries.data;
     return this.$store.state.lotteries.data;
   }

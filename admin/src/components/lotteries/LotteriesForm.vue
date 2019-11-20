@@ -62,6 +62,7 @@
     </div> 
 
     <div class="_fieldset">
+      <p>Lottery status: {{this.isActive == 1  ? "Active (Winners not declared) " : "Inactive (Winners Declared)"}}</p>
       <label class="_label"><strong>{{ lang.lotteries.howToSelectInvoices }}</strong></label>
       <div class="_radio">
         <input type="radio" value="division" class="_radio__input" v-model="selectionType" id="typeDivision">
@@ -137,7 +138,7 @@
 
     <div class="_fieldset">
       <input type="button" class="_btn" :value="lang.lotteries.getInvoices" @click.prevent="onGetInvoices" v-if="model.id">
-      <input type="submit" class="_btn" :value="lang.form.submit">
+      <input type="submit" class="_btn" :value="lang.form.submit" v-if="this.isActive == 1">
       <!-- <input type="submit" class="_btn" :value="lang.form.submit" v-if="users.length && prizesPayload.length"> -->
     </div>
 
@@ -181,6 +182,7 @@ export default class LotteriesForm extends Vue {
   private name: string = '';
   private date: string = '';
   private startDate: string = '';
+  private isActive: boolean = false;
   private endDate: string = '';
   private selectionType: string = '';
   private selectionValue: string = '';
@@ -217,6 +219,9 @@ export default class LotteriesForm extends Vue {
 
 
   private editNumber(prize: any ){
+  if (this.isActive == 0){
+    return;
+  }
   var num;
   var number = prompt("Enter Number", "Number");
   if (number == null || number == "") {
@@ -361,6 +366,7 @@ export default class LotteriesForm extends Vue {
       this.prizes = [];
       return;
     }
+    this.isActive = this.model.is_active;
     this.name = this.model.name;
     this.date = this.model.date;
     this.startDate = this.model.start_date;
