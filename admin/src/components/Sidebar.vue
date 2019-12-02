@@ -25,12 +25,12 @@ const items = [
     route: { name: 'home' },
     info: lang.menu.profile.info,
   },
-  {
+  /*{
     title: lang.menu.outlets.title,
     icon: '/images/outlets.svg',
     route: { name: 'outlets' },
     info: lang.menu.outlets.info,
-  },
+  },*/
   {
     title: lang.menu.lotteries.title,
     icon: '/images/lotteries.svg',

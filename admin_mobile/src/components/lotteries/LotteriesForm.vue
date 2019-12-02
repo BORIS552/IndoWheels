@@ -62,7 +62,7 @@
     </div> 
 
     <div class="_fieldset">
-      <p>Lottery status: {{this.isActive == 1  ? "Active (Winners not declared) " : "Inactive (Winners Declared)"}}</p>
+      <p>Lottery status: {{this.isActive == true  ? "Active (Winners not declared) " : "Inactive (Winners Declared)"}}</p>
       <label class="_label"><strong>{{ lang.lotteries.howToSelectInvoices }}</strong></label>
       <div class="_radio">
         <input type="radio" value="division" class="_radio__input" v-model="selectionType" id="typeDivision">

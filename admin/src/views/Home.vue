@@ -25,17 +25,23 @@ import Sidebar from '@/components/Sidebar.vue';
 import lang from '@/lang/en';
 
 const items = [
-  {
+  /*{
     title: lang.menu.outlets.title,
     icon: 'images/outlets.svg',
     route: { name: 'outlets' },
     info: lang.menu.outlets.info,
-  },
+  },*/
   {
     title: lang.menu.lotteries.title,
     icon: 'images/lotteries.svg',
     route: { name: 'lotteries' },
     info: lang.menu.lotteries.info,
+  },
+  {
+    title: lang.menu.prizes.title,
+    icon: 'images/prize.svg',
+    route: { name: 'prizes' },
+    info: lang.menu.prizes.info,
   },
   {
     title: lang.menu.users.title,
