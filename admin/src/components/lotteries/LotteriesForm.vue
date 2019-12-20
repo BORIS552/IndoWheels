@@ -138,7 +138,7 @@
 
     <div class="_fieldset">
       <input type="button" class="_btn" :value="lang.lotteries.getInvoices" @click.prevent="onGetInvoices" v-if="model.id">
-      <input type="submit" class="_btn" :value="lang.form.submit" v-if="this.isActive == 1">
+      <input type="submit" class="_btn" :value="lang.form.submit" v-if="this.isActive == 1 || !this.isActive">
       <!-- <input type="submit" class="_btn" :value="lang.form.submit" v-if="users.length && prizesPayload.length"> -->
     </div>
 

@@ -62,7 +62,7 @@
     </div> 
 
     <div class="_fieldset">
-      <p>Lottery status: {{this.isActive == true  ? "Active (Winners not declared) " : "Inactive (Winners Declared)"}}</p>
+      <p>Lottery status: {{this.isActive == 1  ? "Active (Winners not declared) " : "Inactive (Winners Declared)"}}</p>
       <label class="_label"><strong>{{ lang.lotteries.howToSelectInvoices }}</strong></label>
       <div class="_radio">
         <input type="radio" value="division" class="_radio__input" v-model="selectionType" id="typeDivision">
@@ -138,7 +138,7 @@
 
     <div class="_fieldset">
       <input type="button" class="_btn" :value="lang.lotteries.getInvoices" @click.prevent="onGetInvoices" v-if="model.id">
-      <input type="submit" class="_btn" :value="lang.form.submit" v-if="this.isActive == 1">
+      <input type="submit" class="_btn" :value="lang.form.submit" v-if="this.isActive == 1 || !this.isActive">
       <!-- <input type="submit" class="_btn" :value="lang.form.submit" v-if="users.length && prizesPayload.length"> -->
     </div>
 

@@ -1,0 +1,111 @@
+/*
+
+TOC
+
+Colors
+Typography
+Border
+Buttons
+Forms
+Sidebar
+Shadow
+Animation
+Sidebar
+
+*/
+
+
+/*
+Colors
+*/
+
+// $primary: rgb(0, 180, 255);
+$primary: #b5332f;
+// $secondary: #4c637b;
+$secondary: #113edb;
+$secondary: #fed11f;
+$danger: #f47564;
+$danger-dark: #a01400;
+$warning: #f1c40f;
+$success: #67ba2f;
+$success-dark: #529526;
+$info: #009ce8;
+// text
+$text-focus: #222;
+$text: #666;
+$text-blur: #aaa;
+// $text-focus: #222;
+// $text-focus: #fff;
+// $text: #aaa;
+// $text-blur: #777;
+// light background
+$bg: #eee;
+$bg-blur: #F5F5F5;
+// $bg-focus: #b8c6d6;
+$bg-focus: #dde6f2;
+// dark background
+$dark: rgb(40, 44, 48);
+$dark-blur: rgb(64, 68, 72);
+$dark-focus: rgb(12, 16, 20);
+
+/*
+Typography
+*/
+
+$line-height: 1.6;
+$font-primary: 'Tenor Sans', Roboto,
+sans-serif;
+$font-alt: 'Faster One', cursive;
+$bold: 700;
+$semi-bold: 500;
+$font-xs: 0.7em;
+$font-sm: 0.85em;
+$font-md: 1.15em;
+$font-lg: 1.3em;
+$letter-spacing: 0.05em;
+
+/*
+Border
+*/
+
+$radius: 3px;
+$radius-round: 8px;
+$border-width: 1px;
+$border-style: solid;
+$border-color: #c6d0dc;
+$border-color-focus: #9097ba;
+$border: $border-width $border-style $border-color;
+
+/*
+Buttons
+*/
+
+
+/*
+Forms
+*/
+
+$input-padding-y: 0.75rem;
+
+/*
+Sidebar
+*/
+
+$sidebar-width: 300px;
+$recent-width: 300px;
+
+/*
+Shadow
+*/
+
+// $shadow: 0 5px 20px 0 rgba(54, 74, 109, 0.34);
+$shadow: 0 2px 3px rgba(50, 75, 100, 0.35);
+$shadow: none;
+$shadow-blur: 0 2em 5em #ccc;
+$shadow-long: 0 1rem 5rem rgba(0, 0, 0, .15);
+
+/*
+Animation
+*/
+
+$animation-time: .25s;
